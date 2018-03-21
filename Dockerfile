@@ -1,11 +1,14 @@
 # if you're doing anything beyond your local machine, please pin this to a specific version at https://hub.docker.com/_/node/
 FROM node:8
 
+# Q: is this mkdir command on the host or within the container?
+# Ans: within th econtainer
 RUN mkdir -p /opt/app
 
 # set our node environment, either development or production
 # defaults to production, compose overrides this to development on build and run
-ARG NODE_ENV=production
+#ARG NODE_ENV=production
+ARG NODE_ENV=development
 ENV NODE_ENV $NODE_ENV
 
 # default to port 80 for node, and 5858 or 9229 for debug
